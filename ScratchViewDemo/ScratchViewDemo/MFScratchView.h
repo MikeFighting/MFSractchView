@@ -8,32 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-@class MFScratchView;
+@class MFScratchMasker;
 
 @protocol MFScratchViewDelegate <NSObject>
 
 /**
  *  打开全部图层之后的代理方法
  */
-- (void)openAllCoverScratchView:(MFScratchView *)scratchView;
-- (void)scratchViewBeginScratch:(MFScratchView *)scratchView;
+- (void)openAllCoverScratchView:(MFScratchMasker *)scratchView;
+- (void)scratchViewBeginScratch:(MFScratchMasker *)scratchView;
 
 @end
 
-@interface HYContainerView : UIView
+@interface MFScratchView : UIView
 
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, assign) float brushWidth;
 @property (nonatomic, assign) id<MFScratchViewDelegate>delegate;
 - (void)hideBottomView:(UIView *)bottomView withMaskView:(UIView *)maskView;
 
+@end
+
+@interface MFScratchMasker : UIView
 
 @end
 
-@interface MFScratchView : UIView
-
-
-
-
-@end
 

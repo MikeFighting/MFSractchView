@@ -8,7 +8,7 @@
 
 #import "MFScratchView.h"
 
-@interface MFScratchView ()
+@interface MFScratchMasker ()
 {
     CGPoint previousTouchLocation;
     CGPoint currentTouchLocation;
@@ -16,6 +16,7 @@
     CGContextRef contextMask;
     CGImageRef scratchImage;
 }
+
 @property (nonatomic, assign) BOOL isDrawn;
 @property (nonatomic, strong) UIView *hideView;
 @property (nonatomic, assign) float brushWidth;
@@ -26,18 +27,19 @@
 
 @end
 
-@interface HYContainerView ()
-@property (nonatomic, strong) MFScratchView *scratchView;
+@interface MFScratchView ()
+
+@property (nonatomic, strong) MFScratchMasker *scratchView;
 
 @end
 
-@implementation HYContainerView
+@implementation MFScratchView
 
 - (void)hideBottomView:(UIView *)bottomView withMaskView:(UIView *)maskView{
     
     bottomView.frame = self.bounds;
     [self addSubview:bottomView];
-    _scratchView = [[MFScratchView alloc]initWithFrame:self.bounds];
+    _scratchView = [[MFScratchMasker alloc]initWithFrame:self.bounds];
     [_scratchView setHideView:maskView];
     _scratchView.brushWidth = self.brushWidth;
     _scratchView.scratchViewDelegate = self.delegate;
@@ -60,7 +62,7 @@
     
 @end
 
-@implementation MFScratchView
+@implementation MFScratchMasker
 
 - (id)initWithFrame:(CGRect)frame {
     

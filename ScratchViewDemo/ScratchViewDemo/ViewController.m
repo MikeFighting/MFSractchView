@@ -13,7 +13,7 @@
 #define kContainerWidth (320 - 54)
 @interface ViewController ()<MFScratchViewDelegate>
     
-@property (nonatomic, strong) HYContainerView *containerView;
+@property (nonatomic, strong) MFScratchView *containerView;
 @property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, strong) UIView *bottomView;
     
@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _containerView = [[HYContainerView alloc]initWithFrame:CGRectMake(27, 100, kContainerWidth, 149)];
+    _containerView = [[MFScratchView alloc]initWithFrame:CGRectMake(27, 100, kContainerWidth, 149)];
     
     CGFloat resultLabelWidth = CGRectGetWidth(self.bottomView.frame);
     CGFloat resultLabelTop = (CGRectGetHeight(self.bottomView.frame) - 20) * 0.5;
